@@ -6,7 +6,7 @@ check against the Power Query + Data Model version in the .xlsx file.
 
 The full analysis (70+ Power Query steps, Power Pivot Data Model,
 DAX measures, 4 interactive PivotCharts with slicers) lives in
-'Data Analysis Job Analysis Final.xlsx'. This script is a minimal
+'Job_Market_Analysis.xlsx'. This script is a minimal
 code artifact for reviewers who want to see the core transformation
 logic at a glance.
 
@@ -16,7 +16,7 @@ Project management, out of ~228,745 total skill mentions across
 """
 import pandas as pd
 
-CSV_PATH = "raw postings file.csv"
+CSV_PATH = "raw_postings.csv"
 
 # Load only the columns we need. job_link is used to dedupe postings,
 # mirroring the DAX measure: DISTINCTCOUNT('postings 2'[job_link]).

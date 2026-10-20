@@ -8,10 +8,10 @@ Built with **Power Query**, the **Power Pivot Data Model** and **DAX**.
 
 ## Dashboard Preview
 
-![Top 15 Skills](Dashboard%202.png)
-![Most Required Postings](DashBoard%201.png)
-![Job Postings by Country](Dashboard%203.png)
-![Most Used Words](Dashboard%204.png)
+![Top 15 Skills](dashboard_2.png)
+![Most Required Postings](dashboard_1.png)
+![Job Postings by Country](dashboard_3.png)
+![Most Used Words](dashboard_4.png)
 
 ---
 
@@ -49,9 +49,9 @@ Built with **Power Query**, the **Power Pivot Data Model** and **DAX**.
 
 ## Files in this Repository
 
-* **`Data Analysis Job Analysis Final.xlsx` (35MB):** The final Excel workbook containing all Power Query steps, the Data Model, DAX measures, and the interactive dashboard.
-* **`raw postings file.csv` (60MB):** The original, raw data source.
-* **`DashBoard 1.png`, `Dashboard 2.png`, `Dashboard 3.png`, `Dashboard 4.png`:** Screenshots of the final dashboard.
+* **`Job_Market_Analysis.xlsx` (35MB):** The final Excel workbook containing all Power Query steps, the Data Model, DAX measures, and the interactive dashboard.
+* **`raw_postings.csv` (60MB):** The original, raw data source.
+* **`dashboard_1.png` to `dashboard_4.png`:** Screenshots of the final dashboard.
 * **`analysis.py`, `requirements.txt`:** Python companion script (see below).
 
 ---
