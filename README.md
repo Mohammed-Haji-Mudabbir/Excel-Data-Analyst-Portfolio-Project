@@ -1,68 +1,169 @@
-# Advanced Excel Data Analyst Portfolio Project
+# Excel Job Market Analysis
 
-This repository contains a detailed analysis of **12,894 unique job postings**, built entirely in Microsoft Excel. The project transforms 60MB of raw, messy data into a fully interactive, multi-chart dashboard.
-
-Built with **Power Query**, the **Power Pivot Data Model** and **DAX**.
+> **Attribution Notice**
+>
+> This repository is a fork of the original project by [Mohith-akash](https://github.com/Mohith-akash/Excel-Data-Analyst-Portfolio-Project).
+>
+> The original Excel workbook, dataset, dashboards, Power Query transformations, Data Model, DAX measures and analytical work belong to the original creator.
+>
+> **Repository Maintainer:** Mohammed Haji Mudabbir
+>
+> See [ATTRIBUTION.md](ATTRIBUTION.md) and [LICENSE](LICENSE).
 
 ---
+
+## Project Overview
+
+An interactive Microsoft Excel analysis of **12,894 analyst job postings**, using Power Query, Power Pivot and DAX.
+
+The original analysis transforms approximately 60 MB of raw job-posting data into an interactive dashboard containing job-market insights, skill-demand analysis and geographical comparisons.
+
+**Data scope:** 12,894 job postings, approximately 80.5% from the United States.
 
 ## Dashboard Preview
 
 ![Top 15 Skills](dashboard_2.png)
+
 ![Most Required Postings](dashboard_1.png)
+
 ![Job Postings by Country](dashboard_3.png)
+
 ![Most Used Words](dashboard_4.png)
 
 ---
 
-## Key Findings & Statistics
+## Key Findings
 
-* **Total Jobs Analyzed:** **12,894** unique postings.
-* **Skill Analysis:** Processed **228,745** individual skill mentions. The top 3 skills are **Data analysis**, **SQL**, and **Project management**.
-* **Job Title Analysis:** Standardized 6,797 distinct job titles into about 20 roles. The top 3 most common roles are **Data Analyst** (4,058 jobs), **Business Analyst** (1,978 jobs), and **System Analyst** (1,167 jobs).
-* **Keyword Analysis:** Processed **3.1+ million** words. The top keywords are **'business'** (305k), **'data'** (284k), and **'systems'** (85k).
-* **Geography:** The **United States** accounts for **10,386** of the job postings.
-
----
-
-## Technical Workflow & Skills Demonstrated
-
-### 1. Data Cleaning & Transformation (Power Query)
-* Executed **70+ sequential steps** to clean and standardize the 12,894-row dataset.
-* Used **Conditional Columns** (with 35+ rules) to consolidate 6,797 distinct job titles into ~20 standard roles.
-* Used **Split Column** and **Unpivot Other Columns** to transform the `job_skills` column into 228,745 rows for analysis.
-
-### 2. Data Modeling (Power Pivot & DAX)
-* Loaded the final 228,745-row table into the **Excel Data Model (Power Pivot)** instead of a worksheet, so DAX measures can run across it.
-* Wrote a custom **DAX** measure to solve the "fan trap" problem and accurately count the true number of unique jobs:
-    * `Total Unique Postings = DISTINCTCOUNT('postings 2'[job_link])`
-* This measure correctly returns the **12,894** job total from the 228k-row data model.
-
-### 3. Data Visualization (Interactive Dashboard)
-* Built 4 **PivotCharts** based on the Data Model.
-* Connected all charts to 3 master **Slicers** (`job_level`, `job_type`, `search_country`) using **Report Connections** for a fully interactive experience.
-
-### 4. Version Control (Git LFS)
-* Used **Git LFS (Large File Storage)** to version the 35MB Excel file and the 60MB CSV.
+- **Total Job Postings:** 12,894 unique postings.
+- **Skill Mentions:** 228,745 individual skill mentions.
+- **Top Skills:** Data Analysis, SQL and Project Management.
+- **Distinct Job Titles:** 6,797 standardized into approximately 20 roles.
+- **Top Job Roles:** Data Analyst (4,058), Business Analyst (1,978) and System Analyst (1,167).
+- **Geographical Distribution:** 10,386 postings from the United States.
+- **Keyword Analysis:** More than 3.1 million words processed.
 
 ---
 
-## Files in this Repository
+## Technical Overview
 
-* **`Job_Market_Analysis.xlsx` (35MB):** The final Excel workbook containing all Power Query steps, the Data Model, DAX measures, and the interactive dashboard.
-* **`raw_postings.csv` (60MB):** The original, raw data source.
-* **`dashboard_1.png` to `dashboard_4.png`:** Screenshots of the final dashboard.
-* **`analysis.py`, `requirements.txt`:** Python companion script (see below).
+### 1. Power Query — Data Transformation
+
+- More than 70 sequential transformation steps.
+- Conditional columns with 35+ rules.
+- Standardization of 6,797 distinct job titles.
+- Splitting and unpivoting job-skill data.
+- Transformation into 228,745 skill records.
+
+### 2. Power Pivot — Data Modeling
+
+- Excel Data Model containing 228,745 rows.
+- Data modeling designed to support analysis across multiple tables.
+- DAX measures for accurate aggregation.
+
+### 3. DAX — Analytical Measures
+
+The original workbook includes the following measure:
+
+```dax
+Total Unique Postings =
+DISTINCTCOUNT('postings 2'[job_link])
+```
+
+This measure returns 12,894 unique job postings.
+
+### 4. Excel Dashboard — Data Visualization
+
+- Four PivotCharts.
+- Three interactive slicers.
+- Shared Report Connections.
+- Job-level, job-type and country filtering.
+
+---
+
+## Repository Structure
+
+```text
+Excel-Data-Analyst-Portfolio-Project/
+│
+├── Job_Market_Analysis.xlsx
+├── raw_postings.csv
+├── dashboard_1.png
+├── dashboard_2.png
+├── dashboard_3.png
+├── dashboard_4.png
+├── analysis.py
+├── requirements.txt
+├── .gitattributes
+├── .gitignore
+├── LICENSE
+├── ATTRIBUTION.md
+└── README.md
+```
+
+---
+
+## How to Open the Excel Workbook
+
+**Recommended environment:** Microsoft Excel Desktop for Windows.
+
+1. Clone or download the repository.
+2. Ensure Git LFS is installed to retrieve the actual Excel workbook and CSV.
+3. Open `Job_Market_Analysis.xlsx` using Microsoft Excel Desktop.
+4. Enable the required workbook features.
+5. Access the interactive dashboard and its slicers.
+
+**Requirements:**
+- Microsoft Excel Desktop.
+- Power Query support.
+- Power Pivot and Data Model support.
+
+Note: Power Pivot and DAX functionality may not be available in every Excel edition.
 
 ---
 
 ## Python Companion Script
 
-`analysis.py` reproduces the "Top Skills by Demand" finding in ~30 lines of pandas as a sanity check against the Power Query / DAX version in the `.xlsx` file. It returns the same top 3 from the raw CSV: Data Analysis, SQL, Project Management. The full analysis (70+ Power Query steps, the Data Model, DAX measures, and the interactive dashboard) is in the workbook; the script is just a code artifact for reviewers who want to see the core transformation logic at a glance.
+The original repository also includes `analysis.py`, a Python companion script that checks the top-skill findings using pandas.
 
-Run it with:
+Install dependencies:
 
-```
+```bash
 pip install -r requirements.txt
+```
+
+Execute:
+
+```bash
 python analysis.py
 ```
+
+The primary analytical implementation remains in the original Excel workbook.
+
+---
+
+## Project Credits & Repository Maintenance
+
+This repository is maintained by **Mohammed Haji Mudabbir**.
+
+The original project and Excel analytical implementation were created by **Mohith-akash**.
+
+- **Original Repository:** [Excel Data Analyst Portfolio Project](https://github.com/Mohith-akash/Excel-Data-Analyst-Portfolio-Project)
+- **Original Creator:** Mohith-akash
+- **Repository Maintainer:** Mohammed Haji Mudabbir
+- **License:** MIT
+
+For complete attribution and contribution details, see [ATTRIBUTION.md](ATTRIBUTION.md).
+
+This repository preserves the original creator's analytical work and licensing notices. Repository documentation and maintenance contributions are separately attributable to the maintainer.
+
+See [ATTRIBUTION.md](ATTRIBUTION.md) for further details.
+
+---
+
+## License
+
+This project retains the original **MIT License**.
+
+Copyright (c) 2025 Mohith-akash.
+
+See the root [LICENSE](LICENSE) file for complete terms.
